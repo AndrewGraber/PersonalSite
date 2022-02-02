@@ -1,15 +1,20 @@
 import './App.scss';
-import PageHolder from './components/PageHolder';
-import { ParallaxProvider } from 'react-scroll-parallax';
+import AuthenticatorWrapper from './components/AuthenticatorWrapper';
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import Amplify from 'aws-amplify';
+import '@aws-amplify/ui-react/styles.css';
+import config from './aws-exports';
+
+Amplify.configure(config);
+
+
+const reload = () => window.location.reload();
 
 function App() {
   	return (
-		<ParallaxProvider>
-			<div className="App">
-				<PageHolder />
-			</div>
-		</ParallaxProvider>
+		<AuthenticatorWrapper />
 	);
 }
 
