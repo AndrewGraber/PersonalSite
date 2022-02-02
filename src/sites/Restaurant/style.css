@@ -1,0 +1,82 @@
+/*
+Theme Name: Unnamed Theme
+Theme URI: n/a
+Author: Andrew Grbaer
+Author URI: https://andrewcgraber.com
+Description: N/A
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: unnamedtheme
+This is a theme I made for helping me sell websites.
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+:root {
+    --nav-bg-color: #f0f0f0;
+    --nav-border-color: #d3d3d3;
+    --nav-accent-color: #7cd4fd;
+    --nav-text-color: #333333;
+}
+
+html {
+    font-family: 'Arial', sans-serif;
+}
+
+div.menu-navigation-container {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    background-color: var(--nav-bg-color);
+}
+
+div.menu-navigation-container > ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: var(--nav-bg-color);
+    padding: 0;
+}
+
+.admin-bar div.menu-navigation-container {
+    top: 32px;
+}
+
+div.menu-navigation-container > ul > li.menu-item > a {
+    padding: 1em;
+    background-color: var(--nav-bg-color);
+    color: var(--nav-text-color);
+    text-align: center;
+    transition: background-color 0.1s linear, color 0.1s linear;
+    text-decoration: none;
+    border-right: solid 1px var(--nav-border-color);
+    font-weight: bold;
+}
+
+div.menu-navigation-container > ul > li.menu-item > a:visited {
+    color: var(--nav-text-color);
+}
+
+div.menu-navigation-container > ul > li.menu-item > a:visited:hover {
+    color: var(--nav-bg-color);
+}
+
+div.menu-navigation-container > ul > li.menu-item > a:hover {
+    background-color: var(--nav-accent-color);
+    color: var(--nav-bg-color);
+}
+
+div.menu-navigation-container > ul > li.menu-item a[aria-current="page"] {
+    background-color: var(--nav-accent-color);
+    color: var(--nav-bg-color);
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar div.menu-navigation-container {
+        top: 46px;
+    }
+}

@@ -1,0 +1,87 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="shortcut icon" href="/sites/Restaurant/favicon.ico" type="image/x-icon" />
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/site.css">
+
+    <meta name="theme-color" content="#7cd4fd">
+</head>
+
+<body>
+
+    <div class="nav-container">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="about.html" class="nav-item">About Us</a>
+        <a href="lib/pdfjs/web/viewer.html?file=sample-menu.pdf" target="_blank" class="nav-item">Menu</a>
+        <a href="locations.html" class="nav-item">Locations</a>
+        <a href="reservations.html" class="nav-item">Reservations</a>
+    </div>
+
+    <div class="fullscreen" style="background-image: url(img/restaurant.jpg)">
+        <div class="top-spacer"></div>
+        <div class="opaque-content-panel" style="width: 80%">
+            <h1 style="text-align: center; margin-top: 0;">About Us</h1>
+            <p>
+                This site isn't really anything special, I know. It's just something I whipped up in part of an afternoon as an
+                example for a prospective client of what a static site for their restaurant might look like. It's no Notre Dame, but I feel that
+                it's a good way for me to show my experience with CSS and site design. If this is something I made in just a few hours, imagine
+                what we'll accomplish together!
+            </p>
+            <p>
+                This is where text talking about the restaurant, its mission, etc would go. However, since this is an example website and this
+                restaurant doesn't really exist, I'll add in some filler text.
+            </p>
+            <p style="width: 70%; display: inline-block">
+                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
+                vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris
+                placerat eleifend leo.
+            </p>
+            <img style="width: 30%; display: inline-block; float: right;" src="img/pizza2.jpg">
+            <p>
+                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
+                vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris
+                placerat eleifend leo.
+            </p>
+        </div>
+    </div>
+
+    <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'transport', 'beacon'); ga('send', 'pageview');
+
+        $(function() {
+            $(".nav-dropdown").hover(function(event) {
+                var $dropdown = $(this).find('.nav-dropdown-content');
+                console.log($dropdown);
+                $dropdown.addClass('open');
+            }, function(event) {
+                var $dropdown = $(this).find('.nav-dropdown-content');
+                console.log($dropdown);
+                $dropdown.removeClass('open');
+            });
+        });
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</html>
