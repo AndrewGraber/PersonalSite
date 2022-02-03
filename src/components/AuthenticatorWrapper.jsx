@@ -5,17 +5,19 @@ import { Authenticator } from '@aws-amplify/ui-react';
 
 import MainComponent from './MainComponent';
 
-class AuthenticatorWrapper extends React.Component {
-    render() {
-        return (
-            <Authenticator>
+/*<Authenticator>
                 {({ signOut, user }) => (
                     <div>
                         <MainComponent />
                         <button onClick={signOut}>Sign out</button>
                     </div>
                 )}
-            </Authenticator>
+            </Authenticator>*/
+
+class AuthenticatorWrapper extends React.Component {
+    render() {
+        return (
+            <MainComponent />
         );
     }
 

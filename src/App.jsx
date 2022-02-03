@@ -15,7 +15,6 @@ const reload = () => window.location.reload();
 function App() {
   	return (
 		<AuthenticatorWrapper />
-		//random comment
 	);
 }
 
