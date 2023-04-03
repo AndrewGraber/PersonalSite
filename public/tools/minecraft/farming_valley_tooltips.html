@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Farming Valley Price Tooltips</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        a, a:visited {
+            color: #9184cc;
+            text-decoration: none;
+        }
+
+        a:hover, a:visited:hover {
+            color: #c2b9ec;
+        }
+
+        div.main {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: scroll;
+
+            background-color: #2b2b2b;
+            color: #d4d4d4;
+        }
+
+        div.title, div.content {
+            padding: 3vh 3vw;
+            border-radius: 1.5em;
+            max-width: 90vw;
+        }
+
+        div.title {
+            margin: 5vh 0;
+            background-color: #322f3f;
+        }
+
+        div.title > h1 {
+            font-size: 3em;
+            font-weight: bold;
+        }
+
+        div.content {
+            background-color: #413e4e;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        div#info, p {
+            font-size: 1.5em;
+        }
+
+        div#info ol {
+            width: 90%;
+            margin-left: 5%;
+        }
+
+        div#info ol, ul {
+            padding-left: 1.2em;
+        }
+
+        div#info ol li {
+            margin-bottom: 0.25em;
+        }
+
+        div#info p {
+            margin-bottom: 1em;
+            text-indent: 1em;
+        }
+
+        div.separator {
+            width: 90%;
+            margin: 1em 0;
+            margin-left: 5%;
+            border: 1px solid #afafaf;
+        }
+
+        div.inner {
+            width: 90%;
+            margin-left: 5%;
+        }
+
+        div#info div.inner p {
+            text-indent: unset;
+            margin-bottom: 0.5em;
+        }
+
+        textarea {
+            display: block;
+            width: 100%;
+            min-width: 100%;
+            max-width: 100%;
+            height: 20vh;
+            margin-bottom: 0.5em;
+            background-color: #333333;
+            border-color: #2c2c2c;
+            color: #d4d4d4;
+            white-space: pre;
+        }
+
+        button {
+            background-color: #25127a;
+            padding: 0.5em;
+            border: 3px solid #1a0d53;
+            border-radius: 0.5em;
+            color: #b4b4b4;
+            font-size: 1.25em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.15s linear, border-color 0.15s linear, color 0.15s linear;
+        }
+
+        button:hover {
+            background-color: #3f1bdb;
+            border-color: #3015a8;
+            color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="title">
+            <h1>
+                Tooltip Generator for Farming Valley Shipping Bin Prices
+            </h1>
+        </div>
+        <div class="content">
+            <div id="info">
+                <p>
+                    In playing the <a href="https://www.curseforge.com/minecraft/modpacks/farming-valley" target="_blank">Farming Valley</a> Modpack for Minecraft by Kehaan, it
+                    has come to my attention that there is not really a way to see how much money you're making from what when you sell things (apart from simply selling
+                    one item or type of item per day, which is a waste of time and kind of anti-fun in my opinion). I found a <a href="https://www.reddit.com/r/feedthebeast/comments/n7f46s/farming_valley_i_added_tooltips_to_show_the_sell/" target="_blank">
+                    post on Reddit</a> from a couple of years ago where someone had updated the ShipmentBox.zs script to include tooltips for the prices. The problem
+                    with this is that the post was made over 2 years ago and the prices have likely changed in the updates since then (and could change again in the future).
+                </p>
+                <p>
+                    Enter, this tool - it allows you to generate the price tooltips from your own ShipmentBox.zs file to make sure they're accurate. Instructions are as follows:
+                </p>
+                <div class="separator"></div>
+                <ol>
+                    <li>
+                        Go to the modpack in the CurseForge app, click the button with 3 vertical dots, and select 'Open Folder'. From there, go to the 'scripts' folder
+                        and open up 'ShipmentBox.zs' with your favorite text editor (Notepad is built into Windows, though I'd recommend something like Notepad++ or Visual
+                        Studio Code).
+                    </li>
+                    <li>
+                        Copy and paste the contents of the file into the first box below and press the button. You should see some more lines of script appear in the 'Output' box.
+                    </li>
+                    <li>
+                        Copy the code from the 'Output' box and paste it starting on a new line at the bottom of your 'ShipmentBox.zs' file, making sure to preserve everything that
+                        was already there. Save the file, and restart your game. You should now see the price of items when you hold shift while hovering over them.
+                    </li>
+                </ol>
+                <div class="separator"></div>
+                <div class="inner">
+                    <p>Paste the contents of your 'scripts/ShipmentBox.zs' here:</p>
+                    <textarea id="input"></textarea>
+                    <button id="run-tool">Generate Tooltip Script Lines</button>
+                </div>
+                <div class="separator"></div>
+                <div class="inner">
+                    <p>Output</p>
+                    <textarea id="output"></textarea>
+                    <p style="font-size: 1em;">Once this has been generated, add it to the bottom of 'scripts/ShipmentBox.zs', save and restart your game.</p>
+                </div>
+                <div class="separator"></div>
+                <div class="inner">
+                    <p>Notes:</p>
+                    <ul>
+                        <li>Seeds do not show the price of the plant they produce currently.</li>
+                        <li>This tool currently only adds prices for the items listed in ShipmentBox.zs</li>
+                        <li>Some of the items that have tooltips added to them in ShipmentBox.zs don't actually have a price listing in the file - I'm assuming the vanilla item prices
+                            are hardcoded into the mod, and Aquaculture must directly set the prices for its fish using Harvest Festival's API or something. Anyway, because of this, I
+                            had to hardcode those values into a JSON file to get the tool to work properly. If future updates to the pack change the prices, send me an email at
+                            <a href="mailto:mail@drewg.dev">mail@drewg.dev</a> letting me know which prices are incorrect, and I'll get it updated.</li>
+                        <li>For reference, this tool was last updated for Farming Valley modpack version 1.0.10</li>
+                    </ul>
+                </div>
+                <div class="separator"></div>
+                <div class="inner">
+                    <p>Planned Improvements:</p>
+                    <ul>
+                        <li>Inclusion of buy prices for items found in ShopsItems.zs</li>
+                        <li>Options to customise the tooltip text and color</li>
+                        <li>Finding a way to remove the need for any hardcoded prices, as this tool is meant to be useful into the future.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript">
+        var other_prices = {};
+        $(document).ready(async function() {
+            var other_prices = await $.getJSON('./farming_valley_prices.json');
+
+            $("button#run-tool").on('click', event => {
+                const regShippingCheck = /mods\.harvestfestival\.Shipping\.addShipping\((\<.+\>), ([0-9]+)\);/;
+                const regTooltipCheck = /(\<.+\>).addTooltip\(.+\);/;
+
+                var input = $("#input").val();
+                var output = "//Crop Price Tooltips - Generated by the tool at https://drewg.dev/tools/minecraft/farming_valley_tooltips, created by NetworkOverflow\n\n";
+                var lines = input.split('\n');
+                var values = {};
+                for(var i=0; i < lines.length; i++) {
+                    var matchShipping = lines[i].match(regShippingCheck);
+                    var matchTooltip = lines[i].match(regTooltipCheck);
+
+                    if(matchShipping && matchShipping.length == 3) {
+                        values[matchShipping[1]] = matchShipping[2];
+                    } else if (matchTooltip && matchTooltip.length == 2) {
+                        var itemName = matchTooltip[1];
+                        var itemPrice = "???";
+                        if(values.hasOwnProperty(itemName)) {
+                            itemPrice = values[itemName];
+                        } else if(other_prices.hasOwnProperty(itemName)) {
+                            itemPrice = other_prices[itemName];
+                        }
+
+                        if(itemName === '<harvestfestival:meal:*>') {
+                            output += itemName + ".addTooltip(format.gold(\"Sells for 125% of ingredient price\"));\n"
+                        } else {
+                            output += itemName + ".addTooltip(format.gold(\"Sells for " + itemPrice + "G\"));\n"
+                        }
+                    } else {
+                        //
+                    }
+                }
+                $("#output").val(output);
+            });
+        });
+    </script>
+</body>
+</html>
