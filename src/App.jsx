@@ -3,11 +3,11 @@ import AuthenticatorWrapper from './components/AuthenticatorWrapper';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Amplify from 'aws-amplify';
+import { Amplify } from 'aws-amplify';
 import '@aws-amplify/ui-react/styles.css';
-import config from './aws-exports';
+import awsExports from './aws-exports';
 
-Amplify.configure(config);
+Amplify.configure(awsExports);
 
 
 const reload = () => window.location.reload();

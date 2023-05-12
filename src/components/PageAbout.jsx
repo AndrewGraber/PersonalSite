@@ -9,7 +9,7 @@ class PageAbout extends React.Component {
 
         return (
             <div className="page-container content-page about">
-                <Parallax y={["0px", "0px"]} x={[`${PageAbout.xOffset}px`, `-30px`]}>
+                <Parallax translateY={["0px", "0px"]} translateX={[`${PageAbout.xOffset}px`, `-30px`]}>
                     <h1>
                         About Me
                     </h1>

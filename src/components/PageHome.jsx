@@ -5,7 +5,7 @@ import SocialBar from './SocialBar';
 import ScrollIndicator from './ScrollIndicator';
 import Typewriter from './Typewriter';
 
-import { withController } from 'react-scroll-parallax';
+import { Parallax } from 'react-scroll-parallax';
 
 class PageHome extends React.Component {
     constructor(props) {
@@ -19,8 +19,8 @@ class PageHome extends React.Component {
         return (
             <div className="page-container home">
                 <Headshot />
-                    <Typewriter ref={this.topTypewriter} size="large" content="Andrew Graber" typeSpeed={40} />
-                    <Typewriter ref={this.bottomTypewriter} content="Problem Solver &amp; Programmer" typeSpeed={30} />
+                <Typewriter ref={this.topTypewriter} size="large" content="Andrew Graber" typeSpeed={40} />
+                <Typewriter ref={this.bottomTypewriter} content="Problem Solver &amp; Programmer" typeSpeed={30} />
                 <SocialBar iconSize="large" />
                 <ScrollIndicator />
             </div>
@@ -32,8 +32,8 @@ class PageHome extends React.Component {
         setTimeout((self) => { self.topTypewriter.current.start() }, 500, this);
         setTimeout((self) => { self.bottomTypewriter.current.start() }, 1500, this);
 
-        setTimeout((self) => { self.props.parallaxController.update() }, 50, this);
+        //setTimeout((self) => { self.props.parallaxController.update() }, 50, this);
     }
 }
 
-export default withController(PageHome);
+export default PageHome;

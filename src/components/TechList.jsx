@@ -11,7 +11,7 @@ class TechList extends React.Component {
                     </div>
                 </div>
                 <div className="h-line gray"></div>
-                <div class="item-container">
+                <div className="item-container">
                     {this.props.children}
                 </div>
                 <div className="h-line"></div>

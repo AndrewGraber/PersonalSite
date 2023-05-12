@@ -11,7 +11,7 @@ class PagePortfolio extends React.Component {
     render() {
         return (
             <div className="page-container content-page portfolio">
-                <Parallax y={["0px", "0px"]} x={[`${PagePortfolio.xOffset}px`, `-30px`]}>
+                <Parallax translateY={["0px", "0px"]} translateX={[`${PagePortfolio.xOffset}px`, `-30px`]}>
                     <h1>
                         Portfolio
                     </h1>
@@ -40,7 +40,7 @@ class PagePortfolio extends React.Component {
                     <p style={{marginTop: '1em'}}>
                         Here are some of the projects I've worked on:
                     </p>
-                    <ul class="portfolio-list">
+                    <ul className="portfolio-list">
                         <li>
                             <a href="sites/Restaurant/index.html" target="_blank" rel="noreferrer">Static Restaurant Site</a> - Built in a couple of hours as an example for a prospective client
                         </li>

@@ -14,7 +14,7 @@ class PageContact extends React.Component {
 
         return (
             <div className="page-container content-page contact">
-                <Parallax y={["0px", "0px"]} x={[`${PageContact.xOffset}px`, `-30px`]}>
+                <Parallax translateY={["0px", "0px"]} translateX={[`${PageContact.xOffset}px`, `-30px`]}>
                     <h1>
                         Contact
                     </h1>

@@ -38,6 +38,17 @@ body {
     background-repeat: repeat;
 }
 
+a {
+    text-decoration: none;
+    color: $light-hue;
+    transition: color 0.1s linear;
+    font-weight: 600;
+}
+
+a:hover {
+    color: $dark-hue;
+}
+
 div.App {
     width: 100%;
 
